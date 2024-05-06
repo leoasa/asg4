@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+          background-color: #20741e; /* Purple */
+          color: #ffffff; /* Adjust text color for readability */
+          font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, serif; /* Improve font readability */
+          font-size: 24px;
+      }
+      canvas {
+          display: block; /* Removes bottom margin/gap */
+          margin: auto; /* Center canvas horizontally */
+          border: 1px solid #ccc; /* Add subtle border for visibility */
+      }
+      .slider {
+          width: 75%; /* Full width can be too large sometimes */
+          display: block; /* Makes sliders take a full line */
+          margin: 30px auto; /* Centers the slider and adds vertical space */
+          accent-color: #ffffff;
+      }
+
+      .samelineslider {
+          width: 60%;
+          margin: 30px;
+          accent-color: #ffffff;
+      }
+ 
+      button {
+          margin: 5px; /* Adds space around buttons */
+          padding: 10px; /* Larger click area and more comfortable */
+          background-color: #f8f8f8; /* Light background for buttons */
+          border: 1px solid #ddd; /* Subtle border */
+          cursor: pointer; /* Cursor indicates clickable */
+      }
+      button:hover {
+          background-color: #e8e8e8; /* Slightly darker on hover */
+      }
+  </style>
+    <meta charset="utf-8" />
+    <title>Blocky Animal</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+
+    <header>Blocky Animal: Enderheimer</header>
+    <p></p>
+
+    <text id="stats"></text>
+
+    <!-- <p>
+    <button type="button" id="clear">Reset Canvas</button> -->
+
+    <p>
+    Animation: <button type="button" id="animateButton">ON</button>
+    <button type="button" id="animateOffButton">OFF</button>
+    &nbsp; Speed <input type="range" min="1" max="20" value="7" class="samelineslider" id="moveSpeedSlide">
+
+    <p>
+    Arms <input type="range" min="0" max="100" value="0" class="slider" id="armsSlide">
+
+    <p>
+    Hands <input type="range" min="0" max="100" value="0" class="slider" id="handsSlide">
+
+    <p>
+    Rotation: X Axis<input type="range" min="0" max="360" value="5" class="slider" id="xRotateSlide">
+    Rotation: Y Axis <input type="range" min="0" max="360" value="0" class="slider" id="yRotateSlide">    
+
+    <p>
+    Camera Angle <input type="range" min="0" max="90" value="5" class="slider" id="angleSlide">
+
+    
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Cylinder.js"></script>
+    <script src="Cube.js"></script>
+    <script src="World.js"></script>
+  </body>
+</html>
