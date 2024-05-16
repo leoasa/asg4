@@ -299,7 +299,7 @@ function keydown(ev) {
     g_camera.panRight(panDegree);
   }
   // 'f' to toggle addBlock
-  else if (ev.keyCode === 70) {
+  else if (ev.keyCode === 66) {
     addBlock = !addBlock;
     if (addBlock) {
       sendTexttoHtml("Build mode on", 'buildmode', 'rotatemode');
