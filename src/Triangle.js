@@ -9,17 +9,12 @@ class Triangle {
         var xy = this.position;
         var rgba = this.color;
         var size = this.size;
-        // var xy = g_points[i];
-        // var rgba = g_colors[i];
 
-        // Pass the position of a point to a_Position variable
-        //gl.vertexAttrib3f(a_Position, xy[0], xy[1], 0.0);
         // Pass the color of a point to u_FragColor variable
         gl.uniform4f(u_FragColor, rgba[0], rgba[1], rgba[2], rgba[3]);
+        
         // Pass the color of a point to u_FragColor variable
         gl.uniform1f(u_Size, size);
-
-        // gl.drawArrays(gl.POINTS, 0, 1);
 
         // Draw
         var d = this.size/200.0;
@@ -49,7 +44,6 @@ function drawTriangle(vertices) {
     gl.enableVertexAttribArray(a_Position);
   
     gl.drawArrays(gl.TRIANGLES, 0, n);
-    // return n;
 }
 
 function drawTriangle3D(vertices) {
@@ -74,11 +68,10 @@ function drawTriangle3D(vertices) {
     gl.enableVertexAttribArray(a_Position);
   
     gl.drawArrays(gl.TRIANGLES, 0, n);
-    // return n;
 }
 
 function drawTriangle3DUV(vertices, uv) {
-    var n = 3; // The number of vertices
+    var n = vertices.length / 3; // The number of vertices
 
     // Create a buffer object
     var vertexBuffer = gl.createBuffer();
@@ -117,5 +110,4 @@ function drawTriangle3DUV(vertices, uv) {
     gl.enableVertexAttribArray(a_UV);
 
     gl.drawArrays(gl.TRIANGLES, 0, n);
-    // return n;
 }

@@ -18,9 +18,12 @@ class Cylinder {
         // Set the model matrix for transformations
         gl.uniformMatrix4fv(u_ModelMatrix, false, this.matrix.elements);
 
-
         let bottomCenter = [0, 0, 0];
-        let topCenter = [0, 0, this.height];        
+        let topCenter = [0, 0, this.height];
+
+        let vertices = [];
+        let uv = [];
+
         // Iterate through the height and angle to compute vertices for the side triangles
         for (var y = 0; y < this.height; y += this.height) { // Iterate from base to top
             for (var angle = 0; angle < 360; angle += angleStep) {
@@ -38,15 +41,22 @@ class Cylinder {
                 let v2 = (y + this.height) / this.height;
 
                 // Sides
-                drawTriangle3DUV([vec1[0], vec1[1], vec1[2], vec2[0], vec2[1], vec2[2], vec3[0], vec3[1], vec3[2]], [u1, v1, u2, v1, u1, v2]);
-                drawTriangle3DUV([vec3[0], vec3[1], vec3[2], vec2[0], vec2[1], vec2[2], vec4[0], vec4[1], vec4[2]], [u1, v2, u2, v1, u2, v2]);
+                vertices.push(...vec1, ...vec2, ...vec3);
+                uv.push(u1, v1, u2, v1, u1, v2);
+                vertices.push(...vec3, ...vec2, ...vec4);
+                uv.push(u1, v2, u2, v1, u2, v2);
 
                 // Bottom cap
-                drawTriangle3DUV([bottomCenter[0], bottomCenter[1], bottomCenter[2], vec1[0], vec1[1], vec1[2], vec2[0], vec2[1], vec2[2]], [0.5, 0.5, u1, 0, u2, 0]);
+                vertices.push(...bottomCenter, ...vec1, ...vec2);
+                uv.push(0.5, 0.5, u1, 0, u2, 0);
 
                 // Top cap
-                drawTriangle3DUV([topCenter[0], topCenter[1], topCenter[2], vec3[0], vec3[1], vec3[2], vec4[0], vec4[1], vec4[2]], [0.5, 0.5, u1, 1, u2, 1]);
+                vertices.push(...topCenter, ...vec3, ...vec4);
+                uv.push(0.5, 0.5, u1, 1, u2, 1);
             }
         }
+
+        // Draw all the vertices at once
+        drawTriangle3DUV(vertices, uv);
     }
 }

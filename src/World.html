@@ -38,7 +38,7 @@
       }
   </style>
     <meta charset="utf-8" />
-    <title>Blocky Animal</title>
+    <title>World</title>
   </head>
 
   <body onload="main()">
@@ -46,24 +46,21 @@
     Please use a browser that supports "canvas"
     </canvas>
 
-    <header>Blocky Animal: Enderheimer</header>
+    <header>The Ender World</header>
     <p></p>
 
     <text id="stats"></text>
+    <p></p>
 
-    <!-- <p>
-    <button type="button" id="clear">Reset Canvas</button> -->
+    <text id="buildmode"></text>
+    <text id="rotatemode"></text>
+    <p>
+    <button type="button" id="iceworld">Ice World</button>
+    <button type="button" id="nightworld">Night World</button>
 
     <p>
     Animation: <button type="button" id="animateButton">ON</button>
     <button type="button" id="animateOffButton">OFF</button>
-    &nbsp; Speed <input type="range" min="1" max="20" value="7" class="samelineslider" id="moveSpeedSlide">
-
-    <p>
-    Arms <input type="range" min="0" max="100" value="0" class="slider" id="armsSlide">
-
-    <p>
-    Hands <input type="range" min="0" max="100" value="0" class="slider" id="handsSlide">
 
     <p>
     Rotation: X Axis<input type="range" min="0" max="360" value="5" class="slider" id="xRotateSlide">
@@ -72,11 +69,16 @@
     <p>
     Camera Angle <input type="range" min="0" max="90" value="5" class="slider" id="angleSlide">
 
+    <p>
+      <p></p>
+    Story: This world is in Enderman's mind, the world he believes to live in. Sometimes, he thinks of the world as made of ice. This is what Enderman exists through and lives for. Outside of the world is Enderman's body through which Enderman exists.  
+    </p>
     
     <script src="../lib/webgl-utils.js"></script>
     <script src="../lib/webgl-debug.js"></script>
     <script src="../lib/cuon-utils.js"></script>
     <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="Camera.js"></script>
     <script src="Triangle.js"></script>
     <script src="Cylinder.js"></script>
     <script src="Cube.js"></script>
