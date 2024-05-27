@@ -46,32 +46,37 @@
     Please use a browser that supports "canvas"
     </canvas>
 
-    <header>The Ender World</header>
+    <header>Lighting the Ender World</header>
     <p></p>
 
     <text id="stats"></text>
     <p></p>
 
-    <text id="buildmode"></text>
-    <text id="rotatemode"></text>
     <p>
-    <button type="button" id="iceworld">Ice World</button>
-    <button type="button" id="nightworld">Night World</button>
+      Animation: <button type="button" id="animationonButton">ON</button>
+      <button type="button" id="animationoffButton">OFF</button>
 
     <p>
-    Animation: <button type="button" id="animateButton">ON</button>
-    <button type="button" id="animateOffButton">OFF</button>
+    Lighting: <button type="button" id="lightingonButton">ON</button>
+    <button type="button" id="lightingoffButton">OFF</button>
 
     <p>
-    Rotation: X Axis<input type="range" min="0" max="360" value="5" class="slider" id="xRotateSlide">
-    Rotation: Y Axis <input type="range" min="0" max="360" value="0" class="slider" id="yRotateSlide">    
+    Normals: <button type="button" id="normalsonButton">ON</button>
+      <button type="button" id="normalsoffButton">OFF</button>
+  
 
     <p>
-    Camera Angle <input type="range" min="0" max="90" value="5" class="slider" id="angleSlide">
+    Light: X <input type="range" min="-250" max="250" value="0" class="slider" id="lightXSlider">
+    Y <input type="range" min="-250" max="250" value="100" class="slider" id="lightYSlider">
+    Z <input type="range" min="-250" max="250" value="-200" class="slider" id="lightZSlider">
+    
+    <p>
+    Light Color: Red <input type="range" min="0" max="1000" value="1000" class="slider" id="lightColorRSlider">
+    Green <input type="range" min="0" max="1000" value="1000" class="slider" id="lightColorGSlider">
+    Blue <input type="range" min="0" max="1000" value="1000" class="slider" id="lightColorBSlider">
 
     <p>
-      <p></p>
-    Story: This world is in Enderman's mind, the world he believes to live in. Sometimes, he thinks of the world as made of ice. This is what Enderman exists through and lives for. Outside of the world is Enderman's body through which Enderman exists.  
+
     </p>
     
     <script src="../lib/webgl-utils.js"></script>
@@ -80,8 +85,8 @@
     <script src="../lib/cuon-matrix-cse160.js"></script>
     <script src="Camera.js"></script>
     <script src="Triangle.js"></script>
-    <script src="Cylinder.js"></script>
+    <script src="Sphere.js"></script>
     <script src="Cube.js"></script>
-    <script src="World.js"></script>
+    <script src="asg4.js"></script>
   </body>
 </html>
